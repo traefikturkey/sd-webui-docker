@@ -128,7 +128,12 @@ RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
     scenedetect \
     scikit-learn \
     segment-anything \
-    segmentation-refinement
+    segmentation-refinement\
+    rembg\
+    insightface\
+    ifnude\
+    fastprogress\
+    functional
 
 # Install moviepy and up-to-date tqdm
 RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
