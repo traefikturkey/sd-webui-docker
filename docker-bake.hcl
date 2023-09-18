@@ -8,7 +8,7 @@ variable "IMAGE_REGISTRY" {
 }
 
 variable "IMAGE_NAME" {
-  default = "neggles/sd-webui-docker"
+  default = "traefikturkey/sd-webui-docker"
 }
 
 variable "AUTO_LATEST_REF" {
