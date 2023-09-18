@@ -25,4 +25,7 @@ services:
       - type: bind
         source: ./output
         target: /output
+      - type: bind
+        source: ./models
+        target: /models
 

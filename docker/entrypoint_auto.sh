@@ -4,31 +4,32 @@ set -Eeuo pipefail
 # Set up our directory mapping table
 repo_root=${ROOT_DIR:-'/stable-diffusion-webui'}
 data_dir=${DATA_DIR:-'/data'}
+models_dir=${MODELS_DIR:-'/models'}  # Change this line to use the MODELS_DIR variable instead of DATA_DIR
 declare -A path_map
 
-path_map["${repo_root}/models/Stable-diffusion"]="${data_dir}/StableDiffusion"
-path_map["${repo_root}/models/VAE"]="${data_dir}/VAE"
-path_map["${repo_root}/models/Codeformer"]="${data_dir}/Codeformer"
-path_map["${repo_root}/models/ControlNet"]="${data_dir}/ControlNet"
-path_map["${repo_root}/models/GFPGAN"]="${data_dir}/GFPGAN"
-path_map["${repo_root}/models/ESRGAN"]="${data_dir}/ESRGAN"
-path_map["${repo_root}/models/BSRGAN"]="${data_dir}/BSRGAN"
-path_map["${repo_root}/models/RealESRGAN"]="${data_dir}/RealESRGAN"
-path_map["${repo_root}/models/SwinIR"]="${data_dir}/SwinIR"
-path_map["${repo_root}/models/ScuNET"]="${data_dir}/ScuNET"
-path_map["${repo_root}/models/LDSR"]="${data_dir}/LDSR"
-path_map["${repo_root}/models/hypernetworks"]="${data_dir}/Hypernetworks"
-path_map["${repo_root}/models/torch_deepdanbooru"]="${data_dir}/Deepdanbooru"
-path_map["${repo_root}/models/BLIP"]="${data_dir}/BLIP"
-path_map["${repo_root}/models/midas"]="${data_dir}/MiDaS"
-path_map["${repo_root}/models/Lora"]="${data_dir}/Lora"
-path_map["${repo_root}/models/LyCORIS"]="${data_dir}/Lora"
-path_map["${repo_root}/models/openpose"]="${data_dir}/openpose"
-path_map["${repo_root}/models/Unet-onnx"]="${data_dir}/Unet-onnx"
-path_map["${repo_root}/models/Unet-trt"]="${data_dir}/Unet-trt"
+path_map["${repo_root}/models/Stable-diffusion"]="${models_dir}/StableDiffusion"
+path_map["${repo_root}/models/VAE"]="${models_dir}/VAE"
+path_map["${repo_root}/models/Codeformer"]="${models_dir}/Codeformer"
+path_map["${repo_root}/models/ControlNet"]="${models_dir}/ControlNet"
+path_map["${repo_root}/models/GFPGAN"]="${models_dir}/GFPGAN"
+path_map["${repo_root}/models/ESRGAN"]="${models_dir}/ESRGAN"
+path_map["${repo_root}/models/BSRGAN"]="${models_dir}/BSRGAN"
+path_map["${repo_root}/models/RealESRGAN"]="${models_dir}/RealESRGAN"
+path_map["${repo_root}/models/SwinIR"]="${models_dir}/SwinIR"
+path_map["${repo_root}/models/ScuNET"]="${models_dir}/ScuNET"
+path_map["${repo_root}/models/LDSR"]="${models_dir}/LDSR"  
+path_map["${repo_root}/models/hypernetworks"]="${models_dir}/Hypernetworks"
+path_map["${repo_root}/models/torch_deepdanbooru"]="${models_dir}/Deepdanbooru"
+path_map["${repo_root}/models/BLIP"]="${models_dir}/BLIP"
+path_map["${repo_root}/models/midas"]="${models_dir}/MiDaS"
+path_map["${repo_root}/models/Lora"]="${models_dir}/Lora"
+path_map["${repo_root}/models/LyCORIS"]="${models_dir}/Lora"
+path_map["${repo_root}/models/openpose"]="${models_dir}/openpose"
+path_map["${repo_root}/models/Unet-onnx"]="${models_dir}/Unet-onnx"
+path_map["${repo_root}/models/Unet-trt"]="${models_dir}/Unet-trt"
 
 # extra hack for CodeFormer
-path_map["${repo_root}/repositories/CodeFormer/weights/facelib"]="${data_dir}/.cache"
+path_map["${repo_root}/repositories/CodeFormer/weights/facelib"]="${models_dir}/.cache"
 
 # add pip cache path to path_map
 if [[ -d ${HOME} ]]; then

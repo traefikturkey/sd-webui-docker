@@ -153,6 +153,7 @@ RUN sed -i 's/in_app_dir = .*/in_app_dir = True/g' /usr/local/lib/python3.10/sit
 WORKDIR ${ROOT_DIR}
 ENV CLI_ARGS=""
 ENV DATA_DIR=/data
+ENV MODEL_DIR=/models
 ENV WEBUI_PORT=7860
 ENV UID=1000
 ENV GID=1000
