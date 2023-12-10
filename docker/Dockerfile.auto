@@ -133,6 +133,8 @@ RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
     insightface\
     ifnude\
     fastprogress\
+    python-dotenv\
+    pyfunctional\
     functional
 
 # Install moviepy and up-to-date tqdm
