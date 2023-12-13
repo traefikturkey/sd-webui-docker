@@ -1,6 +1,6 @@
 # docker-bake.hcl for stable-diffusion-webui
 group "default" {
-  targets = ["auto-latest"] #"auto-edge", "vlad-latest"
+  targets = ["auto-latest", "vlad-latest"] #"auto-edge"
 }
 
 variable "IMAGE_REGISTRY" {
