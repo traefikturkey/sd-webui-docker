@@ -3,6 +3,10 @@ group "default" {
   targets = ["auto-latest", "vlad-latest"] #"auto-edge"
 }
 
+variable "AUTO_TAG" {
+  default = "latest"
+}
+
 variable "IMAGE_REGISTRY" {
   default = "ghcr.io"
 }
@@ -117,6 +121,7 @@ target "auto-edge" {
 
 # AUTOMATIC1111 on latest known-good commit
 target "auto-latest" {
+  tags = ["${IMAGE_REGISTRY}/${IMAGE_NAME}:${AUTO_TAG}"]
   inherits   = ["common", "docker-metadata-action"]
   dockerfile = "Dockerfile.auto"
   target     = "webui"

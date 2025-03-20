@@ -1,14 +1,12 @@
 version: "3.7"
 services:
-  webui:
-    image: ghcr.io/neggles/sd-webui-docker:vlad
+  webui-vlad:
+    image: d43fa3e43e580a5b6de8dd4c1188c992baa2f14e63a3c9e071f7b66d4db29ebe
     restart: unless-stopped
-    container_name: sd-webui
+    container_name: sd-webui-vlad
+    tty: true
     environment:
-      CLI_ARGS: "--allow-code --enable-insecure-extension-access --api --xformers --opt-channelslast"
-      # make TQDM behave a little better
-      PYTHONUNBUFFERED: "1"
-      TERM: "${TERM}"
+      - CLI_ARGS=--models /models --no-download --safe   --skip-extensions --skip-git   
     ports:
       - mode: ingress
         target: 7860
@@ -21,4 +19,14 @@ services:
       - type: bind
         source: ./output
         target: /output
+      # - type: bind
+      #   source: ./models
+      #   target: /models
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           capabilities: [ gpu ]
+    #           device_ids: [ "0" ]
 

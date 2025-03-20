@@ -141,7 +141,11 @@ RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
     scenedetect \
     scikit-learn \
     segment-anything \
-    segmentation-refinement
+    segmentation-refinement\
+    tensorflow \
+    invisible-watermark \
+    onnxruntime \
+    pi_heif
 
 # Install moviepy and up-to-date tqdm
 RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
@@ -163,6 +167,7 @@ RUN sed -i 's/in_app_dir = .*/in_app_dir = True/g' /usr/local/lib/python3.10/sit
 WORKDIR ${ROOT_DIR}
 ENV CLI_ARGS=""
 ENV DATA_DIR=/data
+ENV MODEL_DIR=/models
 ENV WEBUI_PORT=7860
 
 EXPOSE ${WEBUI_PORT}

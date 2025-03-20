@@ -1,13 +1,18 @@
 version: "3.7"
 services:
   webui:
-    image: ghcr.io/neggles/sd-webui-docker:latest
+    image: ghcr.io/traefikturkey/sd-webui-docker:latest
     restart: unless-stopped
     container_name: sd-webui
     build:
       context: ./docker
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.auto
       target: webui
+      x-bake:
+        platforms:
+          - linux/amd64
+        tags:
+        - ghcr.io/traefikturkey/sd-webui-docker:latest
     environment:
       CLI_ARGS: "--allow-code --enable-insecure-extension-access --api --xformers --opt-channelslast"
       # make TQDM behave a little better
